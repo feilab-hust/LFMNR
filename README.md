@@ -9,7 +9,7 @@ LFMNR incorporates the physics model with implicit neural representation, offeri
 ## Features 
 * Self-supervised FLFM 3D reconstruction with resolution improvement and artifacts removal
 * Meta-learning acceleration (~100-fold)
-* Extendability on other tomographic 3D-reconstruction (e.g. FPM data, OPT data, Cryo-ET data)
+* Extendability on other tomographic 3D-reconstruction (*e.g.* FPM data, OPT data, Cryo-ET data)
 
 ## System Requirements
 - Windows 10. Linux should be able to run the Python-based codes.
@@ -89,7 +89,8 @@ We provided multiple LFMNR weights which stored different scenes containing ligh
 query the images' data with coordinates input.
 
 #### Example 1: Microtubule (Semi-synthetic) 3D-reconstruction 
-* Weight & Data path: "*data/Trained_Weights_Data/Tube_view7_simuProjection*", which contains the Deconv./VE-Deconv results, corresponding "Ref-3D" ground truth and LFINR weights.
+* Weight & Data path: "*data/Trained_Weights_Data/Tube_view7_simuProjection*", which contains the Deconv./VE-Deconv results,
+  corresponding "Ref-3D" ground truth and LFINR weights. User can compare the reconstruction quality of different methods.
 * LFINR results: After running the command, the LFINR result will be automatically saved at the folder of "*results/Tube_view7_simuProjection*". 
 * Commands:
   ```

@@ -11,6 +11,7 @@ ds_z=0;
 GPU_enable=1;
 cropped_size=[499,499];
 root_dir='';
+iter  = 30; % number of iterations
 
 % H=load('H:\Code\Ewextended_dof\extended_hex\HEX\5X5\hex_5x5\WF\H_WF.mat');
 H=load(fullfile(root_dir,'H_WF.mat'));
@@ -61,9 +62,6 @@ for img_idx=1:length(hr_file_name)
     end
     
     %%  Richardson Lucy deconvolution
-    
-    
-    iter  = 30; % number of iterations
     savePath=fullfile(save_Path,sprintf('Recon_%s.tif',img_name));
     recon = deconvRL(forwardFUN, backwardFUN, LensletImage, iter, init,cropped_size,savePath);
 end
