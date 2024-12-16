@@ -16,10 +16,10 @@ import torch
 import os
 
 
-desired_ckpt = 20000
-t_range = [1,6]
-Log_path = r'E:\YCQ\OceanCode_benchmark\results\Exp_zebrafish_view27_[0.1_0.05_0.01]_[Deblurred]_[k7]_[seqSpikings]_[rep_0-69]'
-output_dir = r'E:\YCQ\OceanCode_benchmark\results\Exp_zebrafish_view27_[0.1_0.05_0.01]_[Deblurred]_[k7]_[seqSpikings]_[rep_0-69]\4d_ckpt'
+desired_ckpt = 100
+t_range = [0,149]
+Log_path = r'G:\LFMNR_official\Github_version\LFMNR\results\Exp_mito_view7_MultiScenes_equal_tile'
+output_dir = r'G:\LFMNR_official\Github_version\LFMNR\results\Exp_mito_view7_MultiScenes_equal_tile\4d_ckpt'
 
 time_prefix = 'timepoint'
 time_folder_list = ['%s_%03d'%(time_prefix,_s) for _s in range(t_range[0],t_range[1])]
@@ -35,7 +35,12 @@ for _f in os.listdir(Log_path):
 saved_weights = []
 for _idx,_f in enumerate(folder_list):
     temp_folder = os.path.join(Log_path,_f)
-    ckpt_list = [_ckpt for _ckpt in os.listdir(temp_folder) if ('.tar' in _ckpt) and ('%d'%desired_ckpt in _ckpt)]
+
+    if _idx == 0:
+        ckpt_list = [_ckpt for _ckpt in os.listdir(temp_folder) if ('.tar' in _ckpt)]
+        ckpt_list = ckpt_list[-1:]
+    else:
+        ckpt_list = [_ckpt for _ckpt in os.listdir(temp_folder) if ('.tar' in _ckpt) and ('%d'%desired_ckpt in _ckpt)]
 
     if len(ckpt_list)!=0:
         ckpt_name = ckpt_list[0]

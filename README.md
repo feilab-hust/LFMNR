@@ -19,12 +19,12 @@ LFMNR incorporates the physics model with implicit neural representation, offeri
 
 ## Dependencies
 ```
-  - python=3.8.8
-  - cudatoolkit=11.7
-  - pytorch=1.13.1
-  - torchvision=0.14.1
-  - tensorboard==2.11.2
-  - scipy==1.7.3
+  - python=3.10.8
+  - cudatoolkit=11.8
+  - pytorch=2.0.1
+  - torchvision=0.15.2
+  - tensorboard==2.10.1
+  - scipy==1.12.0
   - imageio
   - tifffile
   - six==1.16
@@ -111,7 +111,7 @@ query the images' data with coordinates input.
   t_range should be in the form of \[t<sub>start</sub>, t<sub>end</sub>].ROI-box should be in the form of [x,y,z,w,h,d], where x&y&z is
   the 3D coordinates of top-left corner and w&h&d is the 3D size of ROI. Users can customize the 4D ROI in "*configs/LF_Mito_view7_4D_test.cfg*"
   ```
-  python ./code/main.py --flagfile=code/configs/LF_Mito_view7_4D_test.cfg
+  python ./code/main.py --flagfile=code/configs/LF_Mito_view7_Apo_4D_test.cfg
   ```
 
 #### Example 4: Other tomographic-like 3D-reconstruction
@@ -153,4 +153,5 @@ Should you have any questions regarding this code and the corresponding results,
 ## TODO
 * Writing detailed user manual
 * Re-organize the codes for readability
+* Graphical User Interface
 
