@@ -1,0 +1,20 @@
+name: LFMNR
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+  - nvidia
+dependencies:
+  - python=3.8.8
+  - cudatoolkit=11.7
+  - pytorch=1.13.1
+  - torchvision=0.14.1
+  - pip
+  - pip:
+    - tensorboard==2.11.2
+    - scipy==1.7.3
+    - imageio
+    - tifffile
+    - six==1.16
+    - tqdm==4.64.1
+    - mat73==0.59
