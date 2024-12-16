@@ -680,12 +680,10 @@ def train_seq(Flags):
 
     ## Save config
     os.makedirs(os.path.join(Flags.basedir, Flags.expname), exist_ok=True)
-    Flags.append_flags_into_file(os.path.join(Flags.basedir, Flags.expname, 'config.cfg'))  # @@@
-    # os.makedirs(os.path.join(Flags.basedir, f'{Flags.expname}/timepoint_{0:03d}'), exist_ok=True)
-    # Flags_0.append_flags_into_file(os.path.join(Flags_0.basedir, Flags_0.expname, 'config.cfg'))  # @@@
+    Flags.append_flags_into_file(os.path.join(Flags.basedir, Flags.expname, 'config.cfg'))  #
 
     ## Create model
-    models = search_load_model(Flags, (D, H, W))
+    models = search_load_model(Flags, (D, H, W),initial_ckpt=True)
     start = models[4]
     lrate = models[3].param_groups[0]['lr']
 

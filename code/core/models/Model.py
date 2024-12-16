@@ -213,7 +213,6 @@ def create_model(Flags, shape, img_ch, model_type='NeRF', embedder_type='Positio
                  post_processor_type='relu', lr=1e-4,
                  weights_path=None,
                  create_optimizer=True,
-                 DP_enable=False
                  ):
     ## embedder
     embedder_kwargs = {
@@ -311,12 +310,15 @@ def loading_4D_weights(Flags, model_type='NeRF', embedder_type='PositionalEncode
 
 
 
-def search_load_model(Flags, shape = None, create_ok:bool = True, create_optimizer:bool = True, DP_enable=False):
+def search_load_model(Flags, shape = None, create_ok:bool = True, create_optimizer:bool = True, initial_ckpt=False):
     if shape == None: shape = (0,0,0)
     C = Flags.sigch
-    if Flags.weights_path is not None and Flags.weights_path != 'None':
-        keys = ['model', 'embedder', 'post']
-        ckpts = {key: val for key, val in zip([keys, Flags.weights_path])}
+    if Flags.weights_path is not None and Flags.weights_path != 'None' and initial_ckpt:
+        keys = ['model']
+        ckpts = {key: [val] for key, val in zip(keys, Flags.weights_path)}
+        ckpts.update({'embedder':[]})
+        ckpts.update({'post': []})
+
     else:
         ckpts = {
             'model': sorted([os.path.join(Flags.basedir, Flags.expname, f) for f in
@@ -345,7 +347,7 @@ def search_load_model(Flags, shape = None, create_ok:bool = True, create_optimiz
         print('Reloading from', ckpt_paths)
 
     models = create_model(Flags, shape, C, Flags.modeltype, Flags.embeddertype, Flags.postprocessortype,
-                          lr=Flags.lrate, weights_path=ckpt_paths, create_optimizer=create_optimizer,DP_enable=DP_enable)
+                          lr=Flags.lrate, weights_path=ckpt_paths, create_optimizer=create_optimizer)
     return models
 
 def weights_init(m, a=0.0):
