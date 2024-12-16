@@ -32,7 +32,7 @@ LFMNR incorporates the physics model with implicit neural representation, offeri
   - mat73==0.59
 ```
 
-***Note: We provide an packages list ("create_environment.yml"), containing the dependencies list can help users to fast install the running environment.
+***Note: We provide a packages' list ("create_environment.yml"), containing the required dependencies can help users to fast install the running environment.
 To use this, run the following commend inside a [conda](https://docs.conda.io/en/latest/) console***
   ```
   conda env create -f create_environment.yml
