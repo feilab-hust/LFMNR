@@ -8,10 +8,10 @@ ulensPattern = FLFM_ulensTransmittance(Camera, Resolution);
 MLARRAY = FLFM_mlaTransmittance(Resolution, ulensPattern);
 % axiconPattern = FLFM_axiconTransmittance(Camera, Resolution);
 % AXIARRAY = FLFM_mlaTransmittance(Resolution, axiconPattern);
-figure()
+% figure()
 % subplot(211)
-title('MLA');
-imshow(mat2gray(abs(MLARRAY.^2)))
+% title('MLA');
+% imshow(mat2gray(abs(MLARRAY.^2)))
 % subplot(212)
 % title('AXIARRAY');
 % imshow(mat2gray(abs(AXIARRAY.^2)))
@@ -27,8 +27,8 @@ for c = 1:length(Resolution.depths)
             % store the response 
 %             H(:,:,c) = sparse(abs(double(LFpsfSensor).^2));
             H{1,1,c} = sparse(abs(double(LFpsfSensor).^2));
-        fprintf('\nDepth:%d mla2axicon:%.1f ax2ca:%.1f ',c,mla2axicon,ax2ca);
-%     fprintf(['\nDepth: ', num2str(c), '/', num2str(length(Resolution.depths))]);
+        fprintf('\nDepth:%d',c);
+    % fprintf(['\nDepth: ', num2str(c), '/', num2str(length(Resolution.depths))]);
 end
 
 % clip small values to speed up further computations involving H

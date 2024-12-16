@@ -8,11 +8,10 @@ addpath ./projectionOperators
 %% loading H
 % H=psf;
 GPU_enable=1;
-H=load('L:\LFMNR_official\Github_version\FLFM_simulation_hex7\SimuPSF\Hex7_sz2901_100x\H_WF.mat');
+H=load('H_WF.mat');
 H=H.H;
 
-% Ht=load('H:\Code\Extended_dof\extended_hex\HEX\5X5\hex_5x5\WF\Ht_WF.mat');
-% Ht=Ht.Ht;
+
 H_size=size(full(H{:,:,1}));
 
 desired_size=2901;

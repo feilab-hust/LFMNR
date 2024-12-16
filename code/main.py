@@ -98,7 +98,7 @@ def main(argv):
         from train_demo import train_seq
         train_seq(FLAGS)
     if FLAGS.action.lower() == 'train-dp':
-        from train_demo_DP_2 import train_seq as train_seqDP
+        from train_demo_DP import train_seq as train_seqDP
         train_seqDP(FLAGS)
     elif FLAGS.action.lower() == 'test':
         from test import test

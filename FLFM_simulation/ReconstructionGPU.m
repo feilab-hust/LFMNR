@@ -6,11 +6,11 @@ addpath ./LFPSF
 addpath ./projectionOperators
 
 %% loading H
-% H=psf;
+
 ds_z=0;
 GPU_enable=1;
 cropped_size=[499,499];
-root_dir='L:\LFMNR_official\Github_version\FLFM_simulation_hex7\SimuPSF\Hex7_sz2901_100x';
+root_dir='';
 
 % H=load('H:\Code\Ewextended_dof\extended_hex\HEX\5X5\hex_5x5\WF\H_WF.mat');
 H=load(fullfile(root_dir,'H_WF.mat'));
