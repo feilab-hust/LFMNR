@@ -719,12 +719,12 @@ def train_seq(Flags):
     Flags.append_flags_into_file(os.path.join(Flags.basedir, Flags.expname, 'config.cfg'))  # @@@
 
     ## Create model for the first frame
-    models = list(search_load_model(Flags, (D, H, W)))
+    models = list(search_load_model(Flags, (D, H, W),initial_ckpt=True))
     start = models[4]
     lrate = models[3].param_groups[0]['lr']
 
     # 20241128 dp model
-    device_list = [0,1]
+    device_list = GPU_IDX_list
     models[0] = torch.nn.DataParallel(models[0].get_model(), device_ids=device_list)
 
     # perform standard training process on the first timepoint scene, for a good start point
