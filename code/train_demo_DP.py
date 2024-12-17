@@ -246,13 +246,12 @@ def train_Static(Flags, meta: dict = None, models_created=None, dataset_preloade
                 image_rs = torch.stack([forward_project_Transpose(voxel, H_mtx) for H_mtx in H_mtxs], dim=0)
                 targs = targets
 
-
-                # 20241129
-                print('Current_inten of prediceted view1:',
-                      'mean / %.6f  min / %.6f  max / %.6f' % (image_rs[0].mean().data, image_rs[0].min().data, image_rs[0].max().data))
-                print('Current_inten of target view1:',
-                      'mean / %.6f  min / %.6f  max / %.6f' % (targets[0].mean().data, targets[0].min().data, targets[0].max().data))
-
+                # # 20241129
+                # print('Current_inten of prediceted view1:',
+                #       'mean / %.6f  min / %.6f  max / %.6f' % (image_rs[0].mean().data, image_rs[0].min().data, image_rs[0].max().data))
+                # print('Current_inten of target view1:',
+                #       'mean / %.6f  min / %.6f  max / %.6f' % (targets[0].mean().data, targets[0].min().data, targets[0].max().data))
+                #
 
                 loss_avg = img2mse(image_rs.permute([0, -1, 1, 2]), targs.permute([0, -1, 1, 2]))
                 psnr_avg = mse2psnr(loss_avg)
@@ -413,12 +412,11 @@ def train_Static(Flags, meta: dict = None, models_created=None, dataset_preloade
                 image_rs = torch.stack([forward_project_Transpose(voxel, H_mtx) for H_mtx in H_mtxs], dim=0)
                 targs = targets
 
-
-                # 20241129
-                print('Current_inten of prediceted view1:',
-                      'mean / %.6f  min / %.6f  max / %.6f' % (image_rs[0].mean().data, image_rs[0].min().data, image_rs[0].max().data))
-                print('Current_inten of target view1:',
-                      'mean / %.6f  min / %.6f  max / %.6f' % (targets[0].mean().data, targets[0].min().data, targets[0].max().data))
+                # # 20241129
+                # print('Current_inten of prediceted view1:',
+                #       'mean / %.6f  min / %.6f  max / %.6f' % (image_rs[0].mean().data, image_rs[0].min().data, image_rs[0].max().data))
+                # print('Current_inten of target view1:',
+                #       'mean / %.6f  min / %.6f  max / %.6f' % (targets[0].mean().data, targets[0].min().data, targets[0].max().data))
 
                 loss_avg = img2mse(image_rs.permute([0, -1, 1, 2]), targs.permute([0, -1, 1, 2]))
                 psnr_avg = mse2psnr(loss_avg)
@@ -611,11 +609,11 @@ def train_dynamic(Flags, meta: dict = None, models_created=None, dataset_preload
                 image_rs = torch.stack([forward_project_Transpose(voxel, H_mtx) for H_mtx in H_mtxs], dim=0)
                 targs = targets
 
-                # 20241129
-                print('Current_inten of prediceted view1:',
-                      'mean / %.6f  min / %.6f  max / %.6f' % (image_rs[0].mean().data, image_rs[0].min().data, image_rs[0].max().data))
-                print('Current_inten of target view1:',
-                      'mean / %.6f  min / %.6f  max / %.6f' % (targets[0].mean().data, targets[0].min().data, targets[0].max().data))
+                # # 20241129
+                # print('Current_inten of prediceted view1:',
+                #       'mean / %.6f  min / %.6f  max / %.6f' % (image_rs[0].mean().data, image_rs[0].min().data, image_rs[0].max().data))
+                # print('Current_inten of target view1:',
+                #       'mean / %.6f  min / %.6f  max / %.6f' % (targets[0].mean().data, targets[0].min().data, targets[0].max().data))
 
                 loss_avg = img2mse(image_rs.permute([0, -1, 1, 2]), targs.permute([0, -1, 1, 2]))
                 psnr_avg = mse2psnr(loss_avg)
@@ -633,24 +631,24 @@ def train_dynamic(Flags, meta: dict = None, models_created=None, dataset_preload
                 with open(path, 'a') as fp:
                     fp.write(tqdm_txt + '\n')
                 if Flags.shot_when_print:
-                    # 20241128
-                    tifffile.imwrite(os.path.join(Flags.basedir, Flags.expname, 'MSE', f'{(step - 1):06d}.tif'),
-                                     image_rs.cpu().numpy())
-                    tifffile.imwrite(os.path.join(Flags.basedir, Flags.expname, 'recon', f'vox_{(step - 1):06d}.tif'),
-                                     voxel.cpu().numpy())
-                    if 'image_rs_ssim' in locals():
-                        tifffile.imwrite(
-                            os.path.join(Flags.basedir, Flags.expname, 'SSIM', f'ssim_{(step - 1):06d}.tif'),
-                           image_rs_ssim.cpu().numpy())
-
+                    # # 20241128
                     # tifffile.imwrite(os.path.join(Flags.basedir, Flags.expname, 'MSE', f'{(step - 1):06d}.tif'),
-                    #                  Normalize_data(torch.relu(image_rs).cpu().numpy(), cast_bitdepth=16))
+                    #                  image_rs.cpu().numpy())
                     # tifffile.imwrite(os.path.join(Flags.basedir, Flags.expname, 'recon', f'vox_{(step - 1):06d}.tif'),
-                    #                  Normalize_data(torch.relu(voxel).cpu().numpy(), cast_bitdepth=16))
+                    #                  voxel.cpu().numpy())
                     # if 'image_rs_ssim' in locals():
                     #     tifffile.imwrite(
                     #         os.path.join(Flags.basedir, Flags.expname, 'SSIM', f'ssim_{(step - 1):06d}.tif'),
-                    #         Normalize_data(torch.relu(image_rs_ssim).cpu().numpy(), cast_bitdepth=16))
+                    #        image_rs_ssim.cpu().numpy())
+
+                    tifffile.imwrite(os.path.join(Flags.basedir, Flags.expname, 'MSE', f'{(step - 1):06d}.tif'),
+                                     Normalize_data(torch.relu(image_rs).cpu().numpy(), cast_bitdepth=16))
+                    tifffile.imwrite(os.path.join(Flags.basedir, Flags.expname, 'recon', f'vox_{(step - 1):06d}.tif'),
+                                     Normalize_data(torch.relu(voxel).cpu().numpy(), cast_bitdepth=16))
+                    if 'image_rs_ssim' in locals():
+                        tifffile.imwrite(
+                            os.path.join(Flags.basedir, Flags.expname, 'SSIM', f'ssim_{(step - 1):06d}.tif'),
+                            Normalize_data(torch.relu(image_rs_ssim).cpu().numpy(), cast_bitdepth=16))
 
 
             del image_rs, voxel, loss_avg, psnr_avg, loss_ssim
@@ -705,8 +703,6 @@ def train_seq(Flags):
         for dataset in dataset_preloaded:
             if 'targets' in dataset:
                 dataset['targets'] = dataset['targets'] / maxval_ori
-            # if 'views' in dataset:
-            #     dataset['views'] = dataset['views'] / maxval
             if 'ssim' in dataset:
                 dataset['ssim']['targets'] = dataset['ssim']['targets'] / maxval_ssim
 
