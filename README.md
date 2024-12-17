@@ -70,7 +70,7 @@ To use this, run the following commend inside a [conda](https://docs.conda.io/en
 #### Training and test data preparation: ####
 ***Note***:
 We provide example data for network training and testing. Please download from [Google Drive](https://drive.google.com/drive/folders/1mcP4AzC2waJfwcpjPuQ1vObnjq_mm9aq?usp=sharing). 
-When the file has been downloaded, please extract the packaged data into './code/data' (refer to [Overview of repository](#Overview_of_repository))
+When the file has been downloaded, please extract the packaged data into './code/data' (refer to [Overview of repository](#overview-of-repository))
 
 ### Commands for Training
 
