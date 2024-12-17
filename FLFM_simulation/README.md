@@ -11,7 +11,8 @@ Ref: \
 ## Example usages
 
 * FLFM PSF generation
-
+    \
+  *Note: Users can set the optical paramters in "main_FLFM_Simu.m"*
   - Click "main_FLFM_Simu.m" to generate PSF
   - Waiting for several minutes. PSF will be saved both in forms of ".mat" and ".tif"
 * Forward projection
