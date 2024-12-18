@@ -1,6 +1,6 @@
 
 
-## High-fidelity, generalizable light-field reconstruction of biological dynamics with physics-informed meta neural representation
+## High-fidelity generalizable light-field reconstruction of biological dynamics with physics-informed meta neural representation
 
 
 This is a repository for the self-supervised light-field microscopy reconstruction approach, termed Light-Filed Meta Neural Representation (LFMNR).
@@ -148,7 +148,7 @@ query the images' data with coordinates input.
 
 ## Citation
 If you use this code and relevant data, please cite the corresponding paper where original methods appeared:
-Yi, C., Sun, J., Sun, M., Zhu, L. et al. High-fidelity, generalizable light-field reconstruction of biological dynamics with physics-informed meta neural representation. 
+Yi, C., Sun, J., Sun, M., Zhu, L. et al. High-fidelity generalizable light-field reconstruction of biological dynamics with physics-informed meta neural representation. 
 
 ## Correspondence
 Should you have any questions regarding this code and the corresponding results, please contact Chengqiang Yi (cqyi@hust.edu.cn)
