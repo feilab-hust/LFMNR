@@ -13,7 +13,7 @@ LFMNR incorporates the physics model with implicit neural representation, offeri
 
 ## System Requirements
 - Windows 10. Linux should be able to run the Python-based codes.
-- Graphics: Nvidia GPU with >16 GB graphic memory (RTX 4090 recommended or better)
+- Graphics: Nvidia GPU with >16 GB graphic memory (RTX 4090 recommended or multi-GPUs for parallel computing)
 - Memory: >=32 GB RAM 
 - Hard Drive: ~50GB free space (SSD recommended)
 
@@ -33,7 +33,7 @@ LFMNR incorporates the physics model with implicit neural representation, offeri
 ```
 
 ***Note: We provide a packages' list ("create_environment.yml"), containing the required dependencies can help users to fast install the running environment.
-To use this, run the following commend inside a [conda](https://docs.conda.io/en/latest/) console***
+To use this, run the following commend inside a [conda](https://docs.conda.io/en/latest/) console. This step will cost ~10 minutes (depend on the network quality)***
   ```
   conda env create -f create_environment.yml
   ```
@@ -75,8 +75,9 @@ When the file has been downloaded, please extract the packaged data into './code
 ### Commands for Training
 
 #### Example 1: Single scene training
-This command was used to represent one scene (mitochondria, here) with LFINR. The parameters and corresponding data have been included in the config file ('*LF_mito_scene1.cfg*').
- Users can run the following command in console
+This command was used to represent one scene (mitochondria, here) with LFINR. The network parameters and corresponding data directory have been included in the config file ('*LF_mito_scene1.cfg*'). 
+Users can modify the parameters following the code annotation in "main.py"
+  Run the following command in console to start training
   ```
   python ./code/main.py --flagfile=code/configs/LF_mito_scene1.cfg
   ```
