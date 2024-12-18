@@ -20,7 +20,7 @@ flags.DEFINE_string('save_dir', 'results', 'output data path for validation.')
 
 
 # embedder configs
-flags.DEFINE_enum('embeddertype', 'None', ['None','PositionalEncoder','RadiaPosiEncoder'], 'Encoder type.')
+flags.DEFINE_enum('embeddertype', 'None', ['None','PositionalEncoder','RadiaPosiEncoder'], 'Type of coordinates enconder')
 # PositionalEncoder
 flags.DEFINE_integer('multires', 10, 'log2 of max freq for positional encoding.')
 flags.DEFINE_integer('multiresZ', None, 'log2 of max freq for positional encoding on z axis for anisotropic encoding.')
@@ -31,10 +31,11 @@ flags.DEFINE_boolean('no_reload', False, 'Do not reload weights from saved ckpt.
 flags.DEFINE_list('weights_path', None, 'Weight paths to be loaded from: [model_weights(, embedder_weights(, post_processor_weights))]. Should be strings. "None" for ignore.')
 flags.DEFINE_integer('sigch', 1, '#channels of the signal to be predicted.')
 flags.DEFINE_boolean('compile', False, 'Compile model for faster training using new pytorch 2.0 feature.')
+
 # NeRF-like
-flags.DEFINE_integer('netdepth', 8, '#layers.')
+flags.DEFINE_integer('netdepth', 8, '#number of MLP layers.')
 flags.DEFINE_integer('netwidth', 256, '#channels per layer.')
-flags.DEFINE_list('skips', [4], 'Skip connection layer indice.')
+flags.DEFINE_list('skips', [4], 'Skip connection layer indices.')
 
 
 # postprocessor configs
@@ -56,7 +57,7 @@ flags.DEFINE_list('boundary_range', [100,400], 'Learn rate decay step.')
 # training options
 flags.DEFINE_integer('N_steps', 10000, '#training steps for each scene.')
 flags.DEFINE_integer('N_epochs', 1, '#training epochs (for cross-scene training).')
-flags.DEFINE_integer('N_steps_seq', 100, '#training steps for subsequencial scenes (in train-seq).')
+flags.DEFINE_integer('N_steps_seq', 100, '#training steps for subsequent scenes (in train-seq).')
 flags.DEFINE_float('lrate', 5e-4, 'Learn rate.')
 flags.DEFINE_integer('lrate_decay', 250, 'Exponential learning rate decay (in 1000 steps).')
 flags.DEFINE_integer('block_size', 129, 'Block Size trained one time. Should be an odd number.')
@@ -78,10 +79,10 @@ flags.DEFINE_boolean('retain_gray', False, 'Keep rendered 3D videos grayscale.')
 
 flags.DEFINE_string('Hdir', None, 'H_mtx path for rendering projections. Omit when render_proj is set to False. None for reproducing training inputs.')
 # finetuning options
-flags.DEFINE_integer('N_steps_ft', 2000, '#finetuning steps for each scene.')
-flags.DEFINE_float('lrate_ft', 0.004, 'Learn rate for finetuning.')
-flags.DEFINE_list('lrate_decay_ft', [1000, 1500, 1800], 'Learn rate decay step.')
-flags.DEFINE_float('lrate_decay_gamma', 0.5, 'Learn rate decay amount.')
+# flags.DEFINE_integer('N_steps_ft', 2000, '#finetuning steps for each scene.')
+# flags.DEFINE_float('lrate_ft', 0.004, 'Learn rate for finetuning.')
+# flags.DEFINE_list('lrate_decay_ft', [1000, 1500, 1800], 'Learn rate decay step.')
+# flags.DEFINE_float('lrate_decay_gamma', 0.5, 'Learn rate decay amount.')
 # logging
 flags.DEFINE_integer('i_weights', 10000, 'Weight ckpt saving interval.')
 flags.DEFINE_integer('i_print', 1000, 'Printout and logging interval.')

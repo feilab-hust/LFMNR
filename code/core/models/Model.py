@@ -233,6 +233,7 @@ def create_model(Flags, shape, img_ch, model_type='NeRF', embedder_type='Positio
                 'input_ch':  embedder.out_dim if hasattr(embedder, 'out_dim') else 3,
                 'output_ch': Flags.sigch,
                 'skips': [eval(_s) if isinstance(_s,str) else _s for _s in Flags.skips],
+                'compile': Flags.compile,
         }
     model = Model(model_type=model_type, **model_kwargs)
     if create_optimizer:
