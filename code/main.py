@@ -14,8 +14,8 @@ flags.DEFINE_enum('action', 'TRAIN',
                   'Action: TRAIN, TRAIN-MS or TEST.')
 
 flags.DEFINE_string('basedir', '', 'Input data path.')
-flags.DEFINE_string('expname', 'exp', help='Experiment name.')
-flags.DEFINE_string('datadir', './data/LF/exp', 'Input data path.')
+flags.DEFINE_string('expname', 'exp', help='Experiment name (the folder name of results)')
+flags.DEFINE_string('datadir', './data/LF/exp', 'Input data path, which contains the json file to load PSF and FLFM views')
 flags.DEFINE_string('save_dir', 'results', 'output data path for validation.')
 
 
