@@ -76,8 +76,7 @@ When the file has been downloaded, please extract the packaged data into './code
 
 #### Example 1: Single scene training
 This command was used to represent one scene (mitochondria, here) with LFINR. The network parameters and corresponding data directory have been included in the config file ('*LF_mito_scene1.cfg*'). 
-Users can modify the parameters following the code annotation in "main.py"
-  Run the following command in console to start training
+Users can modify the parameters following the code annotations in "main.py". Typing the following command in console to start training.
   ```
   python ./code/main.py --flagfile=code/configs/LF_mito_scene1.cfg
   ```
