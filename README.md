@@ -118,7 +118,7 @@ query the images' data with coordinates input.
   ```
 
 #### Example 4: Other tomographic-like 3D-reconstruction
-① *** Optical Projection Tomography Data*** 
+① ***Optical Projection Tomography Data*** 
 * Weight & Data path: "*data/Trained_Weights_Data/OtherModalities/Opt*", which contains the SIRT-3D results and INR-net weight under 3 & 7 & 13 views.
 * INR-based results: After running the command, the INR-based result will be automatically saved at the child folder of "*results/Opt_view_{view_number}*". 
 * Commands:
