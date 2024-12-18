@@ -42,28 +42,31 @@ To use this, run the following commend inside a [conda](https://docs.conda.io/en
 ```
 ├── code:
     The source codes of LFMNR 
-    ├── configs:
+    └── configs:
             The configuration files of different sample.
-    ├── core: 
+    └── core: 
             Network model and image-processing codes
-    ├── source 
+    └── source 
             Example images used in "Readme"
     '.py' files:
-    ├── DataFlow2_4Dweights.py  (package the trained weights)
-    ├── glbSettings.py  (Device settings)
-    ├── main.py (main function)
-    ├── test.py (network inference with trained weights)
-    ├── train_demo.py (train LFMNR)
-    ├── train_demo_DP.py (train LFMNR with multi-GPUs)
+    · DataFlow2_4Dweights.py  (package the trained weights)
+    · glbSettings.py  (Device settings)
+    · main.py (main function)
+    · test.py (network inference with trained weights)
+    · train_demo.py (train LFMNR)
+    · train_demo_DP.py (train LFMNR with multi-GPUs)
     
 ├── FLFM_simulation
     The codes for FLFM PSF simulation
 ├── data
-    └── LF: training data for 3D scene
-    └── LF-T: training data for 4D scene
-    └── Trained_Weights_Data: trained weights and corresponding results for validation
+    └── LF: 
+        Containing training data for 3D scene (include FLFM views and PSF)
+    └── LF-T: 
+        Containing training data for 4D scenes (include FLFM squence and PSF)
+    └── Trained_Weights_Data: 
+        Containing trained INR weights and corresponding results for validation
 ├── results: 
-    stores the output files (model weights & logs when training, 3D & 4D reconstruction results)
+    Stores the output files (model weights & logs when training, 3D & 4D reconstruction results)
 ```
 
 ## Get Started 
